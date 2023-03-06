@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 require('./db/mongoose');
 
 const usersRouter = require('./routes/usersRoutes');
-//const hotelsRouter = require('')
+//const hotelsRouter = require('./routes/usersHotels');
 
 server.use(bodyParser.json());
 server.use('/', usersRouter);

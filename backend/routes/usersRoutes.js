@@ -3,7 +3,7 @@ const router = express.Router();
 
 const usersActions = require('../actions/usersActions');
 
-router.get('/users/', usersActions.getAllUser);
+router.get('/users', usersActions.getAllUser);
 router.get('/users/:id', usersActions.getUser);
 router.post('/users', usersActions.saveUser);
 router.put('/users/:id', usersActions.updateUser);
