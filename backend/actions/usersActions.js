@@ -28,9 +28,14 @@ class UsersActions {
     }
 
     async getUser(req, res) {
-        const id = req.params.id;
-        const user = await User.findOne({_id: id});
+        const login = req.body.login;
+        const password = req.body.password;
+        const user = await User.find({
+            login: login,
+            password: password,
+        });
         res.status(200).json(user);
+        console.log(user);
     }
    
     async updateUser(req, res) {

@@ -24,7 +24,7 @@ const HotelSchema = mongoose.Schema({
     price: {
         type: Number,
         required: true,
-    }
+    },
 });
 
 const Hotel = mongoose.model('Hotel', HotelSchema);
