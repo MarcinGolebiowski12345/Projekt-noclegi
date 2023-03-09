@@ -37,7 +37,7 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
         );
         const data = res.data;
         setUsers(data);
-        console.log(data);
+        //console.log(data);
         resetStateOfInputs();
         handleOnClose();
     }
