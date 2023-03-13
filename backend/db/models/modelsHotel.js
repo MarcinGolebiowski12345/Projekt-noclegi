@@ -13,7 +13,7 @@ const HotelSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    advanteges: {
+    advantages: {
         type: String,
         required: true,
     },

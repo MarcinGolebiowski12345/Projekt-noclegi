@@ -5,7 +5,7 @@ class HotelsActions {
         const name = req.body.name;
         const region = req.body.region;
         const place = req.body.place;
-        const advanteges = req.body.advanteges;
+        const advantages = req.body.advantages;
         const owner = req.body.owner;
         const price = req.body.price;
 
@@ -15,7 +15,7 @@ class HotelsActions {
                 name,
                 region,
                 place,
-                advanteges,
+                advantages,
                 owner,
                 price,
             });
@@ -34,7 +34,7 @@ class HotelsActions {
     async getHotel(req, res) {
         const id = req.params.id;
         const hotel= await Hotel.findOne({_id: id});
-        res.status(200).json(user);
+        res.status(200).json(hotel);
     }
 
     async deleteHotel(req, res) {

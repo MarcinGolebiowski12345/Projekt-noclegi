@@ -1,19 +1,22 @@
 const User = require('../db/models/modelsUser');
 
+
 class UsersActions {
     async saveUser(req, res) {
         const name = req.body.name;
-        const surname = req.body.surname;
         const password = req.body.password;
         const login = req.body.login;
+        const admin = req.body.admin;
+        const email = req.body.email;
 
         let newUser;
         try{
             newUser = new User({
                 name,
-                surname,
                 password,
                 login,
+                admin,
+                email
             });
             await newUser.save();
         } catch (err){
@@ -34,20 +37,18 @@ class UsersActions {
             login: login,
             password: password,
         });
-        res.status(200).json(user);
-        console.log(user);
+        res.status(200).json(user[0]);
+        console.log(user[0]);
     }
    
     async updateUser(req, res) {
         const id = req.params.id;
         const name = req.body.name;
-        const surname = req.body.surname;
         const password = req.body.password;
         const login = req.body.login;
 
         const user = await User.findOne({ _id: id });
         user.name = name;
-        user.surname = surname;
         user.password = password;
         user.login = login;
         await user.save();

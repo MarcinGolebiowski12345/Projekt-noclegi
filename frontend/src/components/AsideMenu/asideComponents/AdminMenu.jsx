@@ -12,7 +12,7 @@ const AdminMenu = () => (
         <nav>
             <ul>
                 <li className={style('link')}>
-                    <Link to="/manage-hotels">Oferty</Link>
+                    <Link to="/manage-offer">zarządzaj </Link>
                 </li>
             </ul>
         </nav>

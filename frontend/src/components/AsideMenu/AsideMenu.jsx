@@ -7,18 +7,21 @@ import AdminMenu from './asideComponents/AdminMenu';
 
 const style = bemCssModules(AsideMenuStyles);
 
-const ADMIN_TYPE = 1;
+const ADMIN_TYPE = "admin";
 
 const AsideMenu = () => {
-    const { user } = useContext(StoreContext);
+    const { users } = useContext(StoreContext);
 
-    const adminMenuComponent = user && user.admin === ADMIN_TYPE
+    const adminMenuComponent = users && users.admin === ADMIN_TYPE
         ? <AdminMenu />
         : null;
 
     return (
         <section className={style()}>
-            <UserMenu isUserLogged={Boolean(user)} />
+            <div className={style('nav-wrapper')}>
+                <UserMenu isUserLogged={Boolean(users)} />
+                {adminMenuComponent}
+            </div>
         </section>
     );
 };

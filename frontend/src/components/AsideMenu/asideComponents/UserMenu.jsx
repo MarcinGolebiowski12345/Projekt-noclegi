@@ -14,7 +14,7 @@ const UserMenu = ({ isUserLogged }) => (
                 <li className={style('link')}>
                     <Link to="/">Oferty Hoteli</Link>
                 </li>
-                {isUserLogged && <li className={style('link')}><Link to="/my-offer">Moje oferty</Link></li>}
+                {isUserLogged && <li className={style('link')}><Link to="/my-offer">Moje oferty hoteli</Link></li>}
             </ul>
         </nav>
     </>
