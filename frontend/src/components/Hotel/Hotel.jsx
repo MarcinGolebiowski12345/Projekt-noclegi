@@ -6,6 +6,9 @@ import { default as HotelStyles } from './Hotel.module.scss';
 const style = bemCssModules(HotelStyles);
 
 const Hotel = ({ name, region, place, advantages, owner, price }) => {
+
+    const handleOnClick = () => { };
+
     return (
         <li>
             <article className={style()}>
@@ -16,7 +19,7 @@ const Hotel = ({ name, region, place, advantages, owner, price }) => {
                 <p className={style('advanteges')}>{`Zalety: ${advantages}`}</p>
                 <p className={style('price')}>{`Cena hotelu: ${price}zł`}</p>
                 <p className={style('owner')}>{`Właściciel: ${owner}`}</p>
-
+                <button onClick={handleOnClick}>Zarezerwuj hotel</button>
             </article>
         </li>
 

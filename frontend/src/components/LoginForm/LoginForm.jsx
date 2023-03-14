@@ -16,8 +16,8 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
 
     const { setUsers } = useContext(StoreContext);
 
-    const handleOnChangeLogin = ({ target: { value } }) => setLogin(value);
-    const handleOnChangePassword = ({ target: { value } }) => setPassword(value);
+    const handleOnChangeLogin = ({ target }) => setLogin(target.value);
+    const handleOnChangePassword = ({ target }) => setPassword(target.value);
     const handleOnCloseModal = event => {
         event.preventDefault();
         handleOnClose();

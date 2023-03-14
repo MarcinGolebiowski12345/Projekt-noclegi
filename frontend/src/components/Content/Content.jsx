@@ -22,7 +22,7 @@ const Content = () => {
             <Routes>
                 {<Route exact path="/" element={<Hotels />} />}
                 {isUserLogged && <Route exact path="/my-offer" element={<UserHotels />} />}
-                {isAdmin && <Route exact path="/manage-offer" element={<p>Zarządzaj ofertami</p>} />}
+                {isAdmin && <Route exact path="/manage-offer" element={<p>Zarządzaj użytkownikami</p>} />}
                 {<Route path="*" element={<Navigate to="/" />} />}
             </Routes>
         </main>
