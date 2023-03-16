@@ -25,7 +25,7 @@ const StoreProvider = ({ children }) => {
             setUsers,
         }}>
             {children}
-            {console.log(users)}
+
 
         </StoreContext.Provider>
     );

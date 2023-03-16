@@ -1,6 +1,5 @@
 const User = require('../db/models/modelsUser');
 
-
 class UsersActions {
     async saveUser(req, res) {
         const name = req.body.name;
@@ -38,7 +37,7 @@ class UsersActions {
             password: password,
         });
         res.status(200).json(user[0]);
-        console.log(user[0]);
+        //console.log(user[0]);
     }
    
     async updateUser(req, res) {

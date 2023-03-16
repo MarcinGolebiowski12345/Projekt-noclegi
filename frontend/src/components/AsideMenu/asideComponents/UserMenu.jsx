@@ -6,15 +6,17 @@ import { default as AsideMenuStyles } from '../AsideMenu.module.scss';
 
 const style = bemCssModules(AsideMenuStyles);
 
-const UserMenu = ({ isUserLogged }) => (
+const UserMenu = ({ isUserLogged, ...users }) => (
+
     <>
-        <p className={style('title')}>Panel użytkownika</p>
+        <p className={style('title')}>{users.name}</p>
         <nav>
             <ul>
                 <li className={style('link')}>
                     <Link to="/">Oferty Hoteli</Link>
                 </li>
                 {isUserLogged && <li className={style('link')}><Link to="/my-offer">Moje oferty hoteli</Link></li>}
+                {isUserLogged && <li className={style('link')}><Link to="/addEdit-offer">Dodaj/Edytuj ofertę</Link></li>}
             </ul>
         </nav>
     </>

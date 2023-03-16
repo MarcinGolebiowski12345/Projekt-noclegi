@@ -8,9 +8,12 @@ const style = bemCssModules(AsideMenuStyles);
 
 const AdminMenu = () => (
     <>
-        <p className={style('title')}>Panel administratora</p>
+        <p className={style('title')}>Administrator</p>
         <nav>
             <ul>
+                <li className={style('link')}>
+                    <Link to="/">Oferty Hoteli</Link>
+                </li>
                 <li className={style('link')}>
                     <Link to="/manage-offer">zarządzaj </Link>
                 </li>

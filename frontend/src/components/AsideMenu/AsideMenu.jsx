@@ -5,6 +5,7 @@ import { StoreContext } from '../../store/StoreProvider';
 import UserMenu from './asideComponents/UserMenu';
 import AdminMenu from './asideComponents/AdminMenu';
 
+
 const style = bemCssModules(AsideMenuStyles);
 
 const ADMIN_TYPE = "admin";
@@ -16,10 +17,14 @@ const AsideMenu = () => {
         ? <AdminMenu />
         : null;
 
+    const userMenuComponent = users && users.admin !== ADMIN_TYPE
+        ? <UserMenu isUserLogged={Boolean(users)} {...users} />
+        : null;
+
     return (
         <section className={style()}>
             <div className={style('nav-wrapper')}>
-                <UserMenu isUserLogged={Boolean(users)} />
+                {userMenuComponent}
                 {adminMenuComponent}
             </div>
         </section>

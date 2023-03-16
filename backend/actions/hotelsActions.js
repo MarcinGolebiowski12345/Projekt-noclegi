@@ -9,9 +9,9 @@ class HotelsActions {
         const owner = req.body.owner;
         const price = req.body.price;
 
-        let newHotel;
+        let hotel;
         try{
-            newHotel = new Hotel({
+            hotel = new Hotel({
                 name,
                 region,
                 place,
@@ -19,11 +19,12 @@ class HotelsActions {
                 owner,
                 price,
             });
-            await newHotel.save();
+            await hotel.save();
         } catch (err){
             return res.status(422).json({ message: err.message });
         } 
-        res.status(200).json(newHotel);
+        res.status(200).json(hotel);
+        console.log(hotel);
     }
 
     async getAllHotel(req, res) {
@@ -37,6 +38,27 @@ class HotelsActions {
         res.status(200).json(hotel);
     }
 
+    async updateHotel(req, res) {
+        const id = req.body._id;
+        const name = req.body.name;
+        const region = req.body.region;
+        const place = req.body.place;
+        const advantages = req.body.advantages;
+        const owner = req.body.owner;
+        const price = req.body.price;
+
+        const hotel = await Hotel.findOne({ _id: id });
+        hotel.name = name;
+        hotel.region = region;
+        hotel.place = place;
+        hotel.advantages = advantages;
+        hotel.owner = owner;
+        hotel.price = price;
+        await hotel.save();
+
+        res.status(201).json(hotel);
+    }
+
     async deleteHotel(req, res) {
         const id = req.params.id;
         await Hotel.deleteOne({ _id: id });
@@ -45,16 +67,3 @@ class HotelsActions {
 }
 
 module.exports = new HotelsActions();
-
-
-
-
-
-
-
-
-
-
-
-
-
