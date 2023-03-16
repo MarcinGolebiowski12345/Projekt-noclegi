@@ -15,12 +15,12 @@ const AddEditOffer = () => {
         setIsOpenEdit(false);
     };
 
-    //const consol = () => consol.log(hotels);
+    const consol = console.log(hotels);
     const hotelsElements = hotels.map(hotel => <OfferDetails key={hotel._id} {...hotel} />)
 
     return (
         <section>
-            {console.log(hotels)}
+            {consol}
             {hotelsElements}
             <button onClick={showEdit}>Dodaj nową ofertę</button>
             <HotelEdit isEditMode={false} isOpenEdit={isOpenEdit} hideEdit={hideEdit} />
@@ -29,3 +29,4 @@ const AddEditOffer = () => {
 };
 
 export default AddEditOffer;
+// {console.log(hotels)}

@@ -23,8 +23,9 @@ class HotelsActions {
         } catch (err){
             return res.status(422).json({ message: err.message });
         } 
-        res.status(200).json(hotel);
-        console.log(hotel);
+        const doc = await Hotel.find({});
+        res.status(200).json(doc);
+        //console.log(hotel);
     }
 
     async getAllHotel(req, res) {
@@ -56,7 +57,8 @@ class HotelsActions {
         hotel.price = price;
         await hotel.save();
 
-        res.status(201).json(hotel);
+        const doc = await Hotel.find({});
+        res.status(201).json(doc);
     }
 
     async deleteHotel(req, res) {

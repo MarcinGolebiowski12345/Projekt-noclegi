@@ -28,7 +28,7 @@ const HotelEdit = ({
     const [formOwner, setFormOwner] = useState(owner);
     const [formPrice, setFormPrice] = useState(price);
 
-    const { setHotels } = useContext(StoreContext);
+    const { hotels, setHotels } = useContext(StoreContext);
 
     const handleOnChangeName = event => setFormName(event.target.value);
     const handleOnChangeRegion = event => setFormRegion(event.target.value);
@@ -50,15 +50,23 @@ const HotelEdit = ({
             price: Number(formPrice),
         };
         if (isEditMode) {
+            //console.log(hotelObiect);
+            console.log(hotels);
             const { data, status } = await request.put('/hotels', hotelObiect);
+            //console.log(data);
+            console.log(hotels);
             if (status === 201) {
+                console.log(data);
+                console.log([...hotels]);
                 setHotels(data);
+                console.log(hotels);
             }
         } else {
             const { data, status } = await request.post('/hotels', hotelObiect);
             if (status === 200) {
-                //console.log(data);
+                //console.log([...hotels]);
                 setHotels(data);
+                // console.log(hotels);
 
             }
         }
