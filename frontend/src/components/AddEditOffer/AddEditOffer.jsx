@@ -6,6 +6,7 @@ import OfferDetails from './addEditComponents/OfferDetails';
 const AddEditOffer = () => {
     const [isOpenEdit, setIsOpenEdit] = useState(false);
     const { hotels } = useContext(StoreContext);
+    const { users } = useContext(StoreContext);
 
     const showEdit = () => setIsOpenEdit(true);
     const hideEdit = event => {
@@ -15,12 +16,12 @@ const AddEditOffer = () => {
         setIsOpenEdit(false);
     };
 
-    const consol = console.log(hotels);
-    const hotelsElements = hotels.map(hotel => <OfferDetails key={hotel._id} {...hotel} />)
+    const hotelsElements = hotels
+        .filter(hotel => users.name.includes(hotel.owner))
+        .map(hotel => <OfferDetails key={hotel._id} {...hotel} />)
 
     return (
         <section>
-            {consol}
             {hotelsElements}
             <button onClick={showEdit}>Dodaj nową ofertę</button>
             <HotelEdit isEditMode={false} isOpenEdit={isOpenEdit} hideEdit={hideEdit} />
@@ -29,4 +30,3 @@ const AddEditOffer = () => {
 };
 
 export default AddEditOffer;
-// {console.log(hotels)}

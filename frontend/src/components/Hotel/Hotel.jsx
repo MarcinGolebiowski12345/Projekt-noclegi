@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import bemCssModules from 'bem-css-modules';
-
+//import { StoreContext } from '../../store/StoreProvider';
 import { default as HotelStyles } from './Hotel.module.scss';
 
 const style = bemCssModules(HotelStyles);
 
 const Hotel = ({ name, region, place, advantages, owner, price }) => {
+
+    //const { selectRegion } = useContext(StoreContext);
+    //console.log(selectRegion);
 
     const handleOnClick = () => { };
 

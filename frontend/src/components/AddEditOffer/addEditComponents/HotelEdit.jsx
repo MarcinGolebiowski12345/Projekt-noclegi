@@ -25,16 +25,17 @@ const HotelEdit = ({
     const [formRegion, setFormRegion] = useState(region);
     const [formPlace, setFormPlace] = useState(place);
     const [formAdvantages, setFormAdvantages] = useState(advantages);
-    const [formOwner, setFormOwner] = useState(owner);
+    //const [formOwner, setFormOwner] = useState(owner);
     const [formPrice, setFormPrice] = useState(price);
 
     const { hotels, setHotels } = useContext(StoreContext);
+    const { users } = useContext(StoreContext);
 
     const handleOnChangeName = event => setFormName(event.target.value);
     const handleOnChangeRegion = event => setFormRegion(event.target.value);
     const handleOnChangePlace = event => setFormPlace(event.target.value);
     const handleOnChangeAdvantages = event => setFormAdvantages(event.target.value);
-    const handleOnChangeOwner = event => setFormOwner(event.target.value);
+    //const handleOnChangeOwner = event => setFormOwner(event.target.value);
     const handleOnChangePrice = event => setFormPrice(event.target.value);
 
     const handleOnSubmit = async event => {
@@ -46,28 +47,19 @@ const HotelEdit = ({
             region: formRegion,
             place: formPlace,
             advantages: formAdvantages,
-            owner: formOwner,
+            owner: users.name,
             price: Number(formPrice),
         };
         if (isEditMode) {
-            //console.log(hotelObiect);
             console.log(hotels);
             const { data, status } = await request.put('/hotels', hotelObiect);
-            //console.log(data);
-            console.log(hotels);
             if (status === 201) {
-                console.log(data);
-                console.log([...hotels]);
                 setHotels(data);
-                console.log(hotels);
             }
         } else {
             const { data, status } = await request.post('/hotels', hotelObiect);
             if (status === 200) {
-                //console.log([...hotels]);
                 setHotels(data);
-                // console.log(hotels);
-
             }
         }
         hideEdit();
@@ -105,12 +97,6 @@ const HotelEdit = ({
                     </div>
                     <div className={style('form-row')}>
                         <label>
-                            Właściciel:
-                            <input className={style('input')} onChange={handleOnChangeOwner} type="text" value={formOwner} />
-                        </label>
-                    </div>
-                    <div className={style('form-row')}>
-                        <label>
                             cena:
                             <input className={style('input')} onChange={handleOnChangePrice} type="number" value={formPrice} />
                         </label>
@@ -124,3 +110,10 @@ const HotelEdit = ({
 };
 
 export default HotelEdit;
+
+/*<div className={style('form-row')}>
+                       <label>
+                           Właściciel:
+                           <input className={style('input')} onChange={handleOnChangeOwner} type="text" value={formOwner} />
+                       </label>
+                   </div>*/

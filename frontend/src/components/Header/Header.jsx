@@ -33,7 +33,6 @@ const Header = () => {
 
     return (
         <header className={style()}>
-            <div className={style('logo-wrapper')} />
             <h1 className={style('title')}>Noclegi dla rodzin</h1>
             <button onClick={handleOnClickLogin}>{setProperlyLabelLogin}</button>
             <button onClick={handleOnClickRegister}>{setProperlyLabelRegister}</button>
@@ -45,3 +44,4 @@ const Header = () => {
 
 export default Header;
 
+ // <div className={style('logo-wrapper')} />

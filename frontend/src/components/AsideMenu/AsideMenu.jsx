@@ -4,7 +4,7 @@ import { default as AsideMenuStyles } from './AsideMenu.module.scss';
 import { StoreContext } from '../../store/StoreProvider';
 import UserMenu from './asideComponents/UserMenu';
 import AdminMenu from './asideComponents/AdminMenu';
-
+import FilterHotels from '../FilterHotel/FilterHotels';
 
 const style = bemCssModules(AsideMenuStyles);
 
@@ -26,6 +26,7 @@ const AsideMenu = () => {
             <div className={style('nav-wrapper')}>
                 {userMenuComponent}
                 {adminMenuComponent}
+                <FilterHotels />
             </div>
         </section>
     );

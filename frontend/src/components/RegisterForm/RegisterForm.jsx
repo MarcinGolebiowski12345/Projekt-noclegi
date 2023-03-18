@@ -13,7 +13,7 @@ const RegisterForm = ({ handleOnClose, isModalOpen }) => {
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
-    const [validateMessage, setValidateMessage] = useState('');
+    //const [validateMessage, setValidateMessage] = useState('');
 
     const handleOnCloseRegister = event => {
         event.preventDefault();

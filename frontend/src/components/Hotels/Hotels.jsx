@@ -10,8 +10,14 @@ const style = bemCssModules(HotelsStyles);
 
 const Hotels = () => {
 	const { hotels } = useContext(StoreContext);
+	const { selectRegion } = useContext(StoreContext);
 
-	const hotelsElements = hotels.map(hotel => <Hotel key={hotel._id} {...hotel} />);
+	const hotelsElements = selectRegion === "wybierz region"
+		? hotels.map(hotel => <Hotel key={hotel._id} {...hotel} />)
+
+		: hotels
+			.filter(hotel => hotel.region.includes(selectRegion))
+			.map(hotel => <Hotel key={hotel._id} {...hotel} />);
 
 	return (
 		<section className={style()}>
