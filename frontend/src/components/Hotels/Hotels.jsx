@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import bemCssModules from 'bem-css-modules';
 
 import Hotel from '../Hotel/Hotel';
@@ -11,10 +11,14 @@ const style = bemCssModules(HotelsStyles);
 const Hotels = () => {
 	const { hotels } = useContext(StoreContext);
 	const { selectRegion } = useContext(StoreContext);
+	const { setFiltrActive } = useContext(StoreContext);
+
+	useEffect(() => {
+		setFiltrActive(true);
+	}, []);
 
 	const hotelsElements = selectRegion === "wybierz region"
 		? hotels.map(hotel => <Hotel key={hotel._id} {...hotel} />)
-
 		: hotels
 			.filter(hotel => hotel.region.includes(selectRegion))
 			.map(hotel => <Hotel key={hotel._id} {...hotel} />);

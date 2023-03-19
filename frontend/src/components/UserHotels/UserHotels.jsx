@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import bemCssModule from 'bem-css-modules';
 import Hotel from '../Hotel/Hotel';
 
@@ -9,6 +9,11 @@ const style = bemCssModule(UserHotelsStyle);
 
 const UserHotels = () => {
     const { users, hotels } = useContext(StoreContext);
+    const { setFiltrActive } = useContext(StoreContext);
+
+    useEffect(() => {
+        setFiltrActive(false);
+    }, []);
 
     const addedHotels = hotels
         .filter(hotel => users.name.includes(hotel.owner))

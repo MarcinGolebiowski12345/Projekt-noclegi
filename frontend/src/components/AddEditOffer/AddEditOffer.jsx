@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { StoreContext } from '../../store/StoreProvider';
 import HotelEdit from './addEditComponents/HotelEdit';
 import OfferDetails from './addEditComponents/OfferDetails';
@@ -7,6 +7,11 @@ const AddEditOffer = () => {
     const [isOpenEdit, setIsOpenEdit] = useState(false);
     const { hotels } = useContext(StoreContext);
     const { users } = useContext(StoreContext);
+    const { setFiltrActive } = useContext(StoreContext);
+
+    useEffect(() => {
+        setFiltrActive(false);
+    }, []);
 
     const showEdit = () => setIsOpenEdit(true);
     const hideEdit = event => {

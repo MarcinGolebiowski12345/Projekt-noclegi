@@ -36,9 +36,15 @@ class UsersActions {
             login: login,
             password: password,
         });
-        res.status(200).json(user[0]);
-        //console.log(user[0]);
-    }
+
+        if(user[0]){
+            res.status(200).json(user[0]);
+        } else {
+            res.status(404).json({
+                message: "błędny login lub hasło"
+        });
+        };
+    };
    
     async updateUser(req, res) {
         const id = req.params.id;

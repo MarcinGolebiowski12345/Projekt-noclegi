@@ -12,6 +12,7 @@ const ADMIN_TYPE = "admin";
 
 const AsideMenu = () => {
     const { users } = useContext(StoreContext);
+    const { filterActive } = useContext(StoreContext);
 
     const adminMenuComponent = users && users.admin === ADMIN_TYPE
         ? <AdminMenu />
@@ -21,12 +22,16 @@ const AsideMenu = () => {
         ? <UserMenu isUserLogged={Boolean(users)} {...users} />
         : null;
 
+    const filterHotelsComponent = filterActive
+        ? <FilterHotels />
+        : null;
+
     return (
         <section className={style()}>
             <div className={style('nav-wrapper')}>
                 {userMenuComponent}
                 {adminMenuComponent}
-                <FilterHotels />
+                {filterHotelsComponent}
             </div>
         </section>
     );

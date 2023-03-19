@@ -35,11 +35,16 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
             '/users',
             { login, password }
         );
-        const data = res.data;
-        setUsers(data);
-        //console.log(data);
-        resetStateOfInputs();
-        handleOnClose();
+        if (res.status === 200) {
+            const data = res.data;
+            setUsers(data);
+            resetStateOfInputs();
+            handleOnClose();
+        } else {
+            setValidateMessage(res.data.message);
+            setLogin('');
+            setPassword('');
+        }
     }
 
     useEffect(() => {

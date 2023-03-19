@@ -13,7 +13,7 @@ const style = bemCssModules(ContentStyle);
 const ADMIN_TYPE = "admin";
 
 const Content = () => {
-    const { users } = useContext(StoreContext)
+    const { users } = useContext(StoreContext);
     const isUserLogged = Boolean(users);
     const isAdmin = users && users.admin === ADMIN_TYPE;
 

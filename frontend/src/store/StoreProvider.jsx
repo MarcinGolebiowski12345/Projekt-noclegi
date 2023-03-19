@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 const StoreProvider = ({ children }) => {
     const [hotels, setHotels] = useState([]);
     const [users, setUsers] = useState(null);
-    const [filtrActive, setFiltrActive] = useState(true);
+    const [filterActive, setFiltrActive] = useState(true);
     const [selectRegion, setSelectRegion] = useState("");
 
     const fetchData = async () => {
@@ -25,7 +25,7 @@ const StoreProvider = ({ children }) => {
             setHotels,
             users,
             setUsers,
-            filtrActive,
+            filterActive,
             setFiltrActive,
             selectRegion,
             setSelectRegion,
